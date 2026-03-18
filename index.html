@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="header.css">
+<script src="header.js" defer></script>
+  <link rel="stylesheet" href="./news.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart City Development Portal</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* GLOBAL */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f5f7fa;
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#7a2d2d;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:22px;
+font-weight:bold;
+}
+
+.logo img{
+height:50px;
+}
+
+/* NAVBAR */
+
+.nav-links{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:16px;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ffd700;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+top:35px;
+left:0;
+background:#7a2d2d;
+width:150px;
+border-radius:6px;
+}
+
+.dropdown-content li{
+padding:10px;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+/* MOBILE MENU */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+height:85vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("./images/photo-1508057198894-247b23fe5ade\ \(4\).webp");
+background-size:cover;
+background-position:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:600px;
+margin-bottom:25px;
+}
+
+.hero button{
+padding:12px 25px;
+border:none;
+background:#ffd700;
+color:black;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover{
+background:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:20px;
+background:#7a2d2d;
+padding:20px;
+border-radius:10px;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+<header class="top-header">
+
+  <a href="index.html">
+    <img src="./images/white-logo.webp" class="site-logo">
+  </a>
+
+  <!-- MENU -->
+  <ul class="main-menu" id="mainMenu">
+    <li class="dropdown">
+      <a href="#">Home ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="home1.html">Home 1</a></li>
+        <li><a href="home2.html">Home 2</a></li>
+      </ul>
+    </li>
+
+    <li><a href="login.html">Login</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <!-- TOGGLE BUTTON -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+</header>
+<section class="hero">
+
+<h1>Smart City Development Portal</h1>
+
+<p>
+Building sustainable infrastructure and digital services
+for a smarter and better urban future.
+</p>
+<a href="projects.html" class="hero-btn">Explore Projects</a>
+
+</section>
+
+
+
+<section class="services">
+
+<h2 class="services-title">Smart City Services</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>🚦 Smart Traffic</h3>
+<p>AI-based traffic monitoring and smart signal control.</p>
+</div>
+
+<div class="service-card">
+<h3>💡 Smart Lighting</h3>
+<p>Energy-efficient IoT street lighting systems.</p>
+</div>
+
+<div class="service-card">
+<h3>🌳 Green Parks</h3>
+<p>Eco-friendly urban parks improving environment.</p>
+</div>
+
+<div class="service-card">
+<h3>🚍 Public Transport</h3>
+<p>Integrated metro and bus transport network.</p>
+</div>
+
+<div class="service-card">
+<h3>🏥 Smart Healthcare</h3>
+<p>Digital healthcare infrastructure for citizens.</p>
+</div>
+
+<div class="service-card">
+<h3>📶 City WiFi</h3>
+<p>Free high-speed public WiFi connectivity.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="highlights">
+
+<h2 class="highlights-title">Smart City Highlights</h2>
+
+<div class="highlights-container">
+
+<div class="highlight-card">
+<div class="highlight-icon">🌆</div>
+<h3>Modern Architecture</h3>
+<p>Innovative buildings designed for sustainability and efficiency.</p>
+</div>
+
+<div class="highlight-card">
+<div class="highlight-icon">🚌</div>
+<h3>Smart Mobility</h3>
+<p>Advanced transportation systems for smooth city travel.</p>
+</div>
+
+<div class="highlight-card">
+<div class="highlight-icon">💧</div>
+<h3>Water Management</h3>
+<p>Efficient water distribution and recycling systems.</p>
+</div>
+
+<div class="highlight-card">
+<div class="highlight-icon">🔋</div>
+<h3>Renewable Energy</h3>
+<p>Solar, wind, and clean energy powering the city.</p>
+</div>
+
+<div class="highlight-card">
+<div class="highlight-icon">🌳</div>
+<h3>Green Parks</h3>
+<p>Eco-friendly parks improving the urban environment.</p>
+</div>
+
+<div class="highlight-card">
+<div class="highlight-icon">🏥</div>
+<h3>Smart Healthcare</h3>
+<p>Digital health systems connecting hospitals and citizens.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="news-slider">
+
+<h2 class="slider-title">Latest Smart City News</h2>
+
+<div class="slider-container">
+
+<div class="slide">
+<img src="./images/23.webp" alt="Infrastructure">
+<div class="slide-text">
+<h3>Major Infrastructure Upgrade</h3>
+<p>City launches new highways and smart traffic systems.</p>
+</div>
+</div>
+
+<div class="slide">
+<img src="./images/24.webp" alt="Public Transport">
+<div class="slide-text">
+<h3>New Public Transport Corridor</h3>
+<p>Rapid bus and metro connectivity reducing travel time.</p>
+</div>
+</div>
+
+<div class="slide">
+<img src="./images/25.webp" alt="Green Parks">
+<div class="slide-text">
+<h3>Green Urban Parks Initiative</h3>
+<p>Eco-friendly spaces for recreation and sustainability.</p>
+</div>
+</div>
+
+</div>
+
+<!-- Navigation Buttons -->
+<div class="slider-btn prev">&#10094;</div>
+<div class="slider-btn next">&#10095;</div>
+
+</section>
+
+<style>
+/* ====== Slider Section ====== */
+.news-slider{
+padding:60px 10%;
+background:#f4f6fa;
+position:relative;
+}
+
+.slider-title{
+text-align:center;
+font-size:32px;
+color:#0f3460;
+margin-bottom:40px;
+}
+
+.slider-container{
+display:flex;
+overflow-x:auto;
+scroll-behavior:smooth;
+gap:15px;
+padding-bottom:20px;
+}
+
+.slide{
+min-width:280px;
+position:relative;
+border-radius:15px;
+overflow:hidden;
+flex-shrink:0;
+transition:transform 0.5s ease, opacity 0.5s ease;
+opacity:0;
+transform:translateY(50px);
+}
+
+.slide img{
+width:100%;
+height:180px; /* adjusted for clean look */
+object-fit:cover;
+display:block;
+border-radius:15px;
+}
+
+.slide-text{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,0.5);
+color:white;
+padding:10px 15px;
+font-size:14px;
+}
+
+.slider-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:28px;
+color:#0f3460;
+background:white;
+padding:8px;
+border-radius:50%;
+cursor:pointer;
+user-select:none;
+z-index:10;
+}
+
+.slider-btn.prev{
+left:10px;
+}
+
+.slider-btn.next{
+right:10px;
+}
+
+/* Hide scrollbar */
+.slider-container::-webkit-scrollbar{
+display:none;
+}
+
+/* Hover zoom effect */
+.slide:hover{
+transform:scale(1.05);
+opacity:1;
+}
+
+/* Mobile */
+@media(max-width:768px){
+.slide{
+min-width:250px;
+}
+}
+</style>
+
+
+<section class="section">
+    <h2>Our Services</h2>
+    <div class="info-boxes">
+        <div class="info-box">
+            <img src="https://homesight.org/wp-content/uploads/2024/05/Urban-Planning-and-Disaster-Preparedness-Building-Resilient-Cities.webp" alt="Urban Planning">
+            <h3>Urban Planning</h3>
+            <p>Planning for sustainable city growth with modern infrastructure and public spaces.</p>
+            <a class="card-btn" href="404.html">Learn More</a>
+        </div>
+        <div class="info-box">
+            <img src="./images/26.webp" alt="Smart Infrastructure">
+            <h3>Smart Infrastructure</h3>
+            <p>Digital solutions for traffic, utilities, and energy efficiency to improve urban life.</p>
+            <a class="card-btn" href="404.html">Learn More</a>
+        </div>
+        <div class="info-box">
+            <img src="./images/27.webp" alt="Citizen Engagement">
+            <h3>Citizen Engagement</h3>
+            <p>Participate in surveys, workshops, and consultations to shape city initiatives.</p>
+            <a class="card-btn" href="404.html">Learn More</a>
+        </div>
+        <div class="info-box">
+            <img src="./images/28.webp" alt="Public Services">
+            <h3>Public Services</h3>
+            <p>Access information on healthcare, education, and city amenities for all citizens.</p>
+            <a class="card-btn" href="404.html">Learn More</a>
+        </div>
+    </div>
+</section>
+<section class="why-choose">
+  <h2 class="choose-title">Why Choose Our Smart City?</h2>
+  <div class="choose-container">
+
+    <div class="choose-box">
+      <i class="fa-solid fa-traffic-light"></i>
+      <h3>Smart Traffic</h3>
+      <p>Efficient traffic systems reduce congestion and improve safety.</p>
+    </div>
+
+    <div class="choose-box">
+      <i class="fa-solid fa-leaf"></i>
+      <h3>Green Living</h3>
+      <p>Eco-friendly parks and green infrastructure for sustainability.</p>
+    </div>
+
+    <div class="choose-box">
+      <i class="fa-solid fa-bolt"></i>
+      <h3>Renewable Energy</h3>
+      <p>Clean energy powers the city for a sustainable future.</p>
+    </div>
+
+    <div class="choose-box">
+      <i class="fa-solid fa-hospital"></i>
+      <h3>Smart Healthcare</h3>
+      <p>Connected hospitals and digital health systems for everyone.</p>
+    </div>
+
+  </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const boxes = document.querySelectorAll('.choose-box');
+
+  const revealBoxes = () => {
+    const windowHeight = window.innerHeight;
+    boxes.forEach((box, index) => {
+      const boxTop = box.getBoundingClientRect().top;
+      if(boxTop < windowHeight - 50){
+        setTimeout(() => {
+          box.style.opacity = '1';
+          box.style.transform = 'translateY(0)';
+        }, index * 150);
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealBoxes);
+  revealBoxes(); // call once on load
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".slider-container");
+  const slides = document.querySelectorAll(".slide");
+  const nextBtn = document.querySelector(".slider-btn.next");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+
+  // Make slides appear smoothly on load
+  slides.forEach((slide, index) => {
+    setTimeout(() => {
+      slide.style.opacity = "1";
+      slide.style.transform = "translateY(0)";
+    }, index * 150); // stagger effect
+  });
+
+  // Navigation buttons
+  nextBtn.addEventListener("click", () => {
+    container.scrollBy({ left: 320, behavior: "smooth" });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    container.scrollBy({ left: -320, behavior: "smooth" });
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.highlight-card');
+
+    const revealCards = () => {
+        const windowHeight = window.innerHeight;
+        cards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if(cardTop < windowHeight - 50){
+                setTimeout(() => {
+                    card.classList.add('visible'); // animate one by one
+                }, index * 150); // 150ms delay between cards
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealCards);
+    revealCards(); // call once on load
+});
+</script>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>About Smart City</h3>
+      <p>Urban development initiatives, smart infrastructure, and citizen services.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact Info</h3>
+      <p>123 Smart City Road, Metroville</p>
+      <p>Email: info@smartcity.com</p>
+      <p>Phone: +91 98765 43210</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <div class="footer-social">
+
+<a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+
+</div>
+    </div>
+
+  </div>
+<div class="map-container">
+    <iframe 
+    src="https://maps.google.com/maps?q=Hyderabad%20India&output=embed">
+    </iframe>
+</div>
+  <div class="footer-bottom">
+    <p>© 2026 Smart City Development Portal. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+function openMenu(){
+    document.getElementById("mainMenu").classList.toggle("show");
+}
+
+function toggleDropdown(){
+    let menu = document.getElementById("homeDropdown");
+    menu.classList.toggle("show");
+}
+</script>
+</body>
+</html>

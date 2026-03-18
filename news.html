@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="header.css">
+<script src="header.js" defer></script>
+
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="./news.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>News - Smart City Development Portal</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6fa;
+}
+
+/* HEADER */
+
+header{
+background:#0f3460;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:12px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ffcc00;
+}
+
+
+/* HERO */
+
+.hero{
+height:280px;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("./images/35.webp");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:40px;
+font-weight:bold;
+text-align:center;
+}
+
+
+/* MAIN LAYOUT */
+
+.news-layout{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:40px;
+padding:50px;
+}
+
+
+/* FEATURE NEWS */
+
+.feature-news img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.feature-news h2{
+color:#0f3460;
+margin-top:15px;
+}
+
+.feature-news p{
+line-height:1.6;
+}
+
+
+/* SIDE NEWS */
+
+.side-news{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.side-news h3{
+color:#0f3460;
+border-bottom:2px solid #eee;
+padding-bottom:10px;
+}
+
+.side-item{
+margin:15px 0;
+font-size:15px;
+border-bottom:1px solid #eee;
+padding-bottom:10px;
+}
+
+
+/* NEWS LIST */
+
+.news-list{
+padding:40px 50px;
+}
+
+.article{
+display:flex;
+gap:25px;
+margin-bottom:30px;
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.article:hover{
+transform:scale(1.02);
+}
+
+.article img{
+width:250px;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.article h3{
+color:#0f3460;
+margin-top:0;
+}
+
+
+/* FOOTER */
+
+.footer{
+background:rgb(73,25,25);
+padding-top:40px;
+color:white;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+padding:30px;
+flex-wrap:wrap;
+}
+
+.footer-box{
+width:22%;
+}
+
+.footer-box h3{
+margin-bottom:15px;
+}
+
+.footer-box p,
+.footer-box a{
+color:#e0e0e0;
+font-size:14px;
+line-height:1.6;
+text-decoration:none;
+}
+
+.footer-box ul{
+list-style:none;
+padding:0;
+}
+
+.footer-box ul li{
+margin-bottom:8px;
+}
+
+.footer-social a{
+display:inline-block;
+margin-right:12px;
+font-size:18px;
+width:38px;
+height:38px;
+text-align:center;
+line-height:38px;
+border-radius:50%;
+background:white;
+color:rgb(73,25,25);
+border:1px solid rgb(73,25,25);
+transition:0.3s;
+}
+
+.footer-social a:hover{
+transform:translateY(-5px);
+}
+
+.footer-bottom{
+text-align:center;
+background:rgb(73,25,25);
+padding:15px 0;
+margin-top:20px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.news-layout{
+grid-template-columns:1fr;
+padding:20px;
+}
+
+.article{
+flex-direction:column;
+}
+
+.article img{
+width:100%;
+height:200px;
+}
+
+.footer-box{
+width:45%;
+margin-bottom:25px;
+}
+
+}
+
+@media(max-width:500px){
+
+.footer-box{
+width:100%;
+}
+
+.hero{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+<header class="top-header">
+
+<a href="news.html">
+<img src="./images/white-logo.webp" class="site-logo">
+</a>
+
+<ul class="main-menu" id="mainMenu">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+<div class="hamburger" onclick="openMenu()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</header>
+<div class="hero">
+City Development News
+</div>
+
+
+<section class="news-layout">
+
+
+<div class="feature-news">
+
+<img src="./images/36.webp">
+
+<h2>Major Infrastructure Development Announced</h2>
+
+<p>
+City authorities have announced a major infrastructure expansion
+project including highways, smart traffic systems and urban mobility
+solutions to improve transportation efficiency.
+</p>
+
+</div>
+
+
+<div class="side-news">
+
+<h3>Latest Headlines</h3>
+
+<div class="side-item">🚧 Smart Road Construction Begins</div>
+
+<div class="side-item">🌱 Green Urban Park Initiative</div>
+
+<div class="side-item">🚆 Metro Rail Expansion Plan</div>
+
+<div class="side-item">💡 Smart Lighting Project Launched</div>
+
+<div class="side-item">🏙️ Affordable Housing Scheme</div>
+
+</div>
+
+</section>
+
+
+<section class="news-list">
+
+
+<div class="article">
+
+<img src="./images/37.webp">
+
+<div>
+<h3>Smart Traffic Management System</h3>
+<p>
+A new digital traffic monitoring system will help reduce congestion
+and improve road safety across major city intersections.
+</p>
+</div>
+
+</div>
+
+
+<div class="article">
+
+<img src="./images/38.webp">
+
+<div>
+<h3>New Public Transport Corridor</h3>
+<p>
+Urban planners introduced a new transport corridor to support
+rapid bus transit systems and reduce travel time.
+</p>
+</div>
+
+</div>
+
+
+<div class="article">
+
+<img src="./images/39.webp">
+
+<div>
+<h3>Riverfront Development Project</h3>
+<p>
+City authorities have started a riverfront beautification project
+to promote tourism and environmental sustainability.
+</p>
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+
+<div class="footer-box">
+
+<h3>Smart City Portal</h3>
+
+<p>
+Smart City Development Portal provides digital governance,
+infrastructure updates and citizen services for better urban living.
+</p>
+
+<div class="footer-social">
+
+<a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+
+</div>
+
+</div>
+
+
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-box">
+
+<h3>Departments</h3>
+
+<ul>
+<li>Urban Planning</li>
+<li>Transport Development</li>
+<li>Smart Infrastructure</li>
+<li>Public Safety</li>
+<li>Environment</li>
+</ul>
+
+</div>
+
+
+<div class="footer-box">
+
+<h3>Contact</h3>
+
+<p>Email: smartcity@gov.in</p>
+<p>Phone: +91 9876543210</p>
+<p>Location: City Development Authority</p>
+
+</div>
+
+
+</div>
+
+<div class="map-container">
+    <iframe 
+    src="https://maps.google.com/maps?q=Hyderabad%20India&output=embed">
+    </iframe>
+</div>
+<div class="footer-bottom">
+
+<p>© 2026 Smart City Development Portal | All Rights Reserved</p>
+
+</div>
+
+</footer>
+<script>
+function openMenu(){
+document.getElementById("mainMenu").classList.toggle("show");
+}
+</script>
+</script>
+</body>
+</html>

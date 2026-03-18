@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events - Smart City Portal</title>
+
+<link rel="stylesheet" href="header.css">
+<script src="header.js" defer></script>
+<link rel="stylesheet" href="./news.css">
+<link rel="stylesheet" href="footer.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{background:#f4f6fa;color:#333;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+
+/* ===== HEADER ===== */
+header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 40px; background:#8e44ad; color:white; /* unique Events page color */
+}
+header img{height:60px;}
+nav a{margin:0 15px; font-weight:bold; color:white; transition:0.3s;}
+nav a:hover{color:#ffcc00;}
+.menu-toggle{display:none; font-size:28px; cursor:pointer;}
+
+/* ===== HERO ===== */
+.hero{
+  height:400px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('./images/photo-1551836022-d5d88e9218df.webp');
+  background-size:cover; background-position:center; color:white;
+}
+.hero h1{font-size:42px; margin-bottom:15px; animation:slideDown 1s;}
+.hero p{font-size:18px; max-width:700px; animation:fadeIn 2s;}
+@keyframes slideDown{from{opacity:0; transform:translateY(-50px);}to{opacity:1; transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ===== SECTION: UPCOMING EVENTS ===== */
+.upcoming-events{padding:80px 20px; max-width:1100px; margin:auto;}
+.upcoming-events h2{text-align:center; color:#8e44ad; margin-bottom:50px;}
+.event-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;}
+.event-card{background:white; border-radius:12px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:transform 0.3s;}
+.event-card:hover{transform:translateY(-6px);}
+.event-card img{width:100%; height:180px; object-fit:cover;}
+.event-card .event-info{padding:20px;}
+.event-card .event-info h3{color:#8e44ad; margin-bottom:10px;}
+.event-card .event-info p{color:#555; font-size:14px; line-height:1.5;}
+
+/* ===== SECTION: EVENT HIGHLIGHTS ===== */
+.highlights{display:flex; gap:40px; padding:80px 20px; flex-wrap:wrap; align-items:center;}
+.highlight-img{flex:1 1 45%;}
+.highlight-img img{width:100%; border-radius:12px;}
+.highlight-text{flex:1 1 45%;}
+.highlight-text h2{color:#8e44ad; margin-bottom:15px;}
+.highlight-text p{color:#555; line-height:1.6;}
+
+/* ===== SECTION: PAST EVENTS GALLERY ===== */
+.gallery{padding:80px 20px; background:#f0e5f8;}
+.gallery h2{text-align:center; color:#8e44ad; margin-bottom:40px;}
+.gallery-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
+.gallery-grid img{width:100%; border-radius:12px; transition:0.3s;}
+.gallery-grid img:hover{transform:scale(1.05);}
+
+/* ===== SECTION: EVENT CTA ===== */
+.cta-section{
+  padding:80px 20px; text-align:center; background:#d7bde2; border-radius:12px; margin:80px 20px;
+}
+.cta-section h2{color:#6c3483; margin-bottom:20px;}
+.cta-section p{color:#4d2354; margin-bottom:30px; font-size:16px;}
+.cta-section a{
+  background:#6c3483; color:white; padding:12px 30px; border-radius:8px; font-weight:bold; transition:0.3s;
+}
+.cta-section a:hover{background:#ffcc00; color:#1a1a1a;}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#8e44ad; color:white; padding:40px 20px;
+}
+.footer-container{
+  display:flex; justify-content:space-between; flex-wrap:wrap; max-width:1200px; margin:auto; gap:30px;
+}
+.footer-box h3{font-size:20px; margin-bottom:15px; color:white;}
+.footer-box p,.footer-box a{font-size:14px; color:#e0e0e0; line-height:1.6;}
+.footer-box ul li{margin-bottom:8px;}
+.footer-box ul li a:hover{color:#ffcc00;}
+.footer-social a{
+  display:inline-block;margin-right:12px;font-size:18px;width:38px;height:38px;text-align:center;line-height:38px;
+  border-radius:50%;background:white;color:#8e44ad;border:1px solid #8e44ad;transition:0.3s;
+}
+.footer-social a:hover{background:#8e44ad;color:white;transform:translateY(-5px);}
+.footer-bottom{text-align:center;background:#8e44ad;padding:15px 0;margin-top:20px;font-size:14px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .highlights{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top-header">
+
+  <a href="events.html">
+    <img src="./images/white-logo.webp" class="site-logo">
+  </a>
+
+  <ul class="main-menu" id="mainMenu">
+    <li><a href="home1.html">Home 1</a></li>
+    <li><a href="home2.html">Home 2</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="insight.html">Insight</a></li>
+    <li><a href="invocations.html">Innovations</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="hamburger" onclick="openMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+</header>
+<!-- HERO -->
+<div class="hero">
+    <h1>City Events & Activities</h1>
+    <p>Stay updated with the latest city events, workshops, seminars, and public gatherings happening near you.</p>
+</div>
+
+<!-- SECTION 1: UPCOMING EVENTS -->
+<section class="upcoming-events">
+    <h2>Upcoming Events</h2>
+    <div class="event-grid">
+        <div class="event-card">
+            <img src="./images/photo-1503676260728-1c00da094a0b.webp" alt="Event 1">
+            <div class="event-info">
+                <h3>Smart City Workshop</h3>
+                <p>Interactive workshop on smart city innovations and citizen engagement programs.</p>
+            </div>
+        </div>
+        <div class="event-card">
+            <img src="./images/OIP (1).webp" alt="Event 2">
+            <div class="event-info">
+                <h3>Urban Planning Seminar</h3>
+                <p>Experts discuss future city planning, zoning, and sustainable development initiatives.</p>
+            </div>
+        </div>
+        <div class="event-card">
+            <img src="./images/11 (1).webp" alt="Event 3">
+            <div class="event-info">
+                <h3>Community Outreach Meetup</h3>
+                <p>Engage with local citizens and gather feedback for upcoming projects.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: EVENT HIGHLIGHTS -->
+<section class="highlights">
+    <div class="highlight-img">
+        <img src="./images/12.webp" alt="Highlight">
+    </div>
+    <div class="highlight-text">
+        <h2>Highlight of Last Quarter</h2>
+        <p>The city successfully organized over 20 workshops and public meetings focusing on sustainable urban development and citizen engagement. Attendance exceeded expectations and feedback was overwhelmingly positive.</p>
+    </div>
+</section>
+
+<!-- SECTION 3: PAST EVENTS GALLERY -->
+<section class="gallery">
+    <h2>Past Event Gallery</h2>
+    <div class="gallery-grid">
+        <img src="./images/13.webp" alt="Past Event 1">
+        <img src="./images/14.webp" alt="Past Event 2">
+        <img src="./images/15.webp" alt="Past Event 3">
+        <img src="./images/History-of-smart-cities.webp" alt="Past Event 4">
+    </div>
+</section>
+
+<!-- SECTION 4: EVENT CTA -->
+<section class="cta-section">
+    <h2>Join Our Next Event</h2>
+    <p>Don’t miss out! Register now to be part of city workshops, seminars, and community programs.</p>
+    <a href="#">Register Now</a>
+</section>
+<style>
+
+.footer{
+background:linear-gradient(135deg,#7b1e1e,#3b0d0d);
+color:white;
+padding-top:40px;
+font-family:Arial;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+padding:40px;
+}
+
+.footer-box{
+width:22%;
+}
+
+.footer-box h3{
+margin-bottom:15px;
+}
+
+.footer-box p,
+.footer-box a{
+color:#e0e0e0;
+font-size:14px;
+line-height:1.6;
+text-decoration:none;
+}
+
+.footer-box ul{
+list-style:none;
+padding:0;
+}
+
+.footer-box ul li{
+margin-bottom:8px;
+}
+
+.footer-social a{
+display:inline-block;
+margin-right:12px;
+font-size:18px;
+width:38px;
+height:38px;
+text-align:center;
+line-height:38px;
+border-radius:50%;
+background:white;
+color:#7b1e1e;
+transition:0.3s;
+}
+
+.footer-social a:hover{
+transform:translateY(-5px);
+}
+
+.footer-bottom{
+text-align:center;
+padding:15px 0;
+border-top:1px solid rgba(255,255,255,0.2);
+margin-top:20px;
+}
+
+@media(max-width:900px){
+.footer-box{
+width:45%;
+margin-bottom:25px;
+}
+}
+
+@media(max-width:500px){
+.footer-box{
+width:100%;
+}
+}
+
+</style>
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>Smart City Portal</h3>
+<p>
+Urban development initiatives, smart infrastructure,
+and citizen services for a sustainable city.
+</p>
+
+<div class="footer-social">
+
+<a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+
+</div>
+</div>
+
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home2.html">Home</a></li>
+<li><a href="insights.html">Insights</a></li>
+<li><a href="innovations.html">Innovations</a></li>
+<li><a href="reports.html">Reports</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+
+<div class="footer-box">
+<h3>Departments</h3>
+<ul>
+<li>Urban Planning</li>
+<li>Transport Development</li>
+<li>Smart Infrastructure</li>
+<li>Public Safety</li>
+<li>Environment</li>
+</ul>
+</div>
+
+
+<div class="footer-box">
+<h3>Contact</h3>
+<p>123 Smart City Road</p>
+<p>Email: info@smartcity.com</p>
+<p>Phone: +91 9876543210</p>
+</div>
+
+</div>
+<div class="map-container">
+    <iframe 
+    src="https://maps.google.com/maps?q=Hyderabad%20India&output=embed">
+    </iframe>
+</div>
+<div class="footer-bottom">
+© 2026 Smart City Development Portal | All rights reserved
+</div>
+
+</footer>
+<script>
+function openMenu(){
+  document.getElementById("mainMenu").classList.toggle("show");
+}
+</script>
+</body>
+</html>

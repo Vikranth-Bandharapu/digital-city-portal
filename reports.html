@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="header.css">
+<script src="header.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports - Smart City Portal</title>
+<link rel="stylesheet" href="./news.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="footer.css">
+<style>
+/* ===== GLOBAL ===== */
+*{margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
+body{background:#f4f6fa; color:#333;}
+a{text-decoration:none; color:inherit;}
+ul{list-style:none;}
+
+/* ===== HEADER ===== */
+header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 40px; background:#1a5276; color:white; /* unique header color */
+}
+header img{height:60px;}
+nav a{margin:0 15px; font-weight:bold; color:white; transition:0.3s;}
+nav a:hover{color:#ffcc00;}
+.menu-toggle{display:none; font-size:28px; cursor:pointer;}
+
+/* ===== HERO ===== */
+.hero{
+  height:400px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1605902711622-cfb43c443e54?auto=format&fit=crop&w=1200&q=80');
+  background-size:cover; background-position:center; color:white;
+}
+.hero h1{font-size:42px; margin-bottom:15px; animation:slideDown 1s;}
+.hero p{font-size:18px; max-width:700px; animation:fadeIn 2s;}
+@keyframes slideDown{from{opacity:0; transform:translateY(-50px);}to{opacity:1; transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ===== STATS COUNTERS ===== */
+.stats{
+  display:flex; justify-content:center; gap:40px; margin-top:30px; flex-wrap:wrap;
+}
+.stat-box{
+  background:white; padding:25px; border-radius:12px; width:180px; text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:transform 0.3s;
+}
+.stat-box:hover{transform:translateY(-6px);}
+.stat-box h2{font-size:28px; color:#1a5276; margin-bottom:10px;}
+.stat-box p{font-size:14px; color:#555;}
+
+/* ===== SECTION: DATA HIGHLIGHTS ===== */
+.data-highlights{
+  display:flex; flex-wrap:wrap; gap:30px; margin:80px 0;
+}
+.data-card{
+  flex:1 1 45%; background:white; padding:30px; border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:0.3s;
+}
+.data-card:hover{transform:translateY(-5px);}
+.data-card img{width:100%; border-radius:10px; margin-bottom:15px;}
+.data-card h3{color:#1a5276; margin-bottom:10px;}
+.data-card p{color:#555; line-height:1.6;}
+
+/* ===== SECTION: REPORT TRENDS ===== */
+.trends-section{
+  background:#e8f4f8; padding:80px 20px; border-radius:12px;
+}
+.trends-section h2{text-align:center; color:#1a5276; margin-bottom:40px;}
+.trend{
+  display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-bottom:30px;
+}
+.trend i{
+  font-size:36px; color:#ffcc00; min-width:50px;
+}
+.trend-content h3{color:#1a5276; margin-bottom:6px;}
+.trend-content p{color:#555; font-size:14px; line-height:1.6;}
+
+/* ===== SECTION: DOWNLOADABLE REPORTS ===== */
+.download-section{
+  padding:80px 20px;
+}
+.download-section h2{text-align:center; color:#1a5276; margin-bottom:40px;}
+.download-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;
+}
+.download-card{
+  background:white; border-radius:12px; padding:25px; box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+.download-card:hover{transform:translateY(-5px);}
+.download-card h3{color:#1a5276; margin-bottom:10px;}
+.download-card p{color:#555; font-size:14px; margin-bottom:12px;}
+.download-card a{color:#1a5276; font-weight:bold;}
+.download-card a:hover{color:#ffcc00;}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#1a5276; color:white; padding:40px 20px;
+}
+.footer-container{
+  display:flex; justify-content:space-between; flex-wrap:wrap; max-width:1200px; margin:auto; gap:30px;
+}
+.footer-box h3{font-size:20px; margin-bottom:15px; color:white;}
+.footer-box p,.footer-box a{font-size:14px; color:#e0e0e0; line-height:1.6;}
+.footer-box ul li{margin-bottom:8px;}
+.footer-box ul li a:hover{color:#ffcc00;}
+.footer-social a{
+  display:inline-block;margin-right:12px;font-size:18px;width:38px;height:38px;text-align:center;line-height:38px;
+  border-radius:50%;background:white;color:#1a5276;border:1px solid #1a5276;transition:0.3s;
+}
+.footer-social a:hover{background:#1a5276;color:white;transform:translateY(-5px);}
+.footer-bottom{text-align:center;background:#1a5276;padding:15px 0;margin-top:20px;font-size:14px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .data-highlights{flex-direction:column;}
+  .trend{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top-header">
+
+  <a href="reports.html">
+    <img src="./images/white-logo.webp" class="site-logo">
+  </a>
+
+  <ul class="main-menu" id="mainMenu">
+    <li><a href="home1.html">Home 1</a></li>
+    <li><a href="home2.html">Home 2</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="insights.html">Insight</a></li>
+    <li><a href="invocations.html">Innovations</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="hamburger" onclick="openMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+</header>
+<!-- HERO -->
+<div class="hero">
+    <h1>City Reports & Analytics</h1>
+    
+    <div class="stats">
+        <div class="stat-box">
+            <h2>150+</h2>
+            <p>Reports Published</p>
+        </div>
+        <div class="stat-box">
+            <h2>80+</h2>
+            <p>City Projects Analyzed</p>
+        </div>
+        <div class="stat-box">
+            <h2>50K+</h2>
+            <p>Data Points Collected</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 1: Data Highlights -->
+<section class="data-highlights">
+    <div class="data-card">
+        <img src="./images/41.webp" alt="Urban Growth">
+        <h3>Urban Growth Analysis</h3>
+        <p>Insights into city expansion, population density trends, and infrastructure growth patterns.</p>
+    </div>
+    <div class="data-card">
+        <img src="./images/42.webp" alt="Traffic Flow">
+        <h3>Traffic Flow Analytics</h3>
+        <p>Evaluate traffic congestion, smart signal efficiency, and public transport usage trends.</p>
+    </div>
+</section>
+
+<!-- SECTION 2: Report Trends -->
+<section class="trends-section">
+    <h2>Report Trends</h2>
+    <div class="trend">
+        <i class="fa-solid fa-chart-line"></i>
+        <div class="trend-content">
+            <h3>Increasing Public Transport Adoption</h3>
+            <p>Analysis shows a steady increase in metro and bus usage over the last 2 years.</p>
+        </div>
+    </div>
+    <div class="trend">
+        <i class="fa-solid fa-leaf"></i>
+        <div class="trend-content">
+            <h3>Green Initiatives Growth</h3>
+            <p>Urban greening and sustainability programs are positively impacting air quality metrics.</p>
+        </div>
+    </div>
+    <div class="trend">
+        <i class="fa-solid fa-building"></i>
+        <div class="trend-content">
+            <h3>Affordable Housing Expansion</h3>
+            <p>Significant growth in affordable housing availability in newly planned districts.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: Downloadable Reports -->
+<section class="download-section">
+    <h2>Download Reports</h2>
+    <div class="download-grid">
+        <div class="download-card">
+            <h3>Water Management Report</h3>
+            <p>Key insights on water consumption and sustainability metrics.</p>
+            <a href="#">Download PDF ➝</a>
+        </div>
+        <div class="download-card">
+            <h3>Traffic & Mobility Report</h3>
+            <p>Detailed report on traffic patterns and commuter behavior.</p>
+            <a href="#">Download PDF ➝</a>
+        </div>
+        <div class="download-card">
+            <h3>Urban Housing Report</h3>
+            <p>Analysis of housing availability and urban development trends.</p>
+            <a href="#">Download PDF ➝</a>
+        </div>
+        <div class="download-card">
+            <h3>Environmental Impact Report</h3>
+            <p>Assesses pollution levels, green spaces, and city sustainability.</p>
+            <a href="#">Download PDF ➝</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<style>
+
+.footer{
+background:linear-gradient(135deg,#7b1e1e,#3b0d0d);
+color:white;
+padding-top:40px;
+font-family:Arial;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+padding:40px;
+}
+
+.footer-box{
+width:22%;
+}
+
+.footer-box h3{
+margin-bottom:15px;
+}
+
+.footer-box p,
+.footer-box a{
+color:#e0e0e0;
+font-size:14px;
+line-height:1.6;
+text-decoration:none;
+}
+
+.footer-box ul{
+list-style:none;
+padding:0;
+}
+
+.footer-box ul li{
+margin-bottom:8px;
+}
+
+.footer-social a{
+display:inline-block;
+margin-right:12px;
+font-size:18px;
+width:38px;
+height:38px;
+text-align:center;
+line-height:38px;
+border-radius:50%;
+background:white;
+color:#7b1e1e;
+transition:0.3s;
+}
+
+.footer-social a:hover{
+transform:translateY(-5px);
+}
+
+.footer-bottom{
+text-align:center;
+padding:15px 0;
+border-top:1px solid rgba(255,255,255,0.2);
+margin-top:20px;
+}
+
+@media(max-width:900px){
+.footer-box{
+width:45%;
+margin-bottom:25px;
+}
+}
+
+@media(max-width:500px){
+.footer-box{
+width:100%;
+}
+}
+
+</style>
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>Smart City Portal</h3>
+<p>
+Urban development initiatives, smart infrastructure,
+and citizen services for a sustainable city.
+</p>
+
+<div class="footer-social">
+
+<a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+
+<a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+
+</div>
+</div>
+
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="home2.html">Home</a></li>
+<li><a href="insights.html">Insights</a></li>
+<li><a href="innovations.html">Innovations</a></li>
+<li><a href="reports.html">Reports</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+
+<div class="footer-box">
+<h3>Departments</h3>
+<ul>
+<li>Urban Planning</li>
+<li>Transport Development</li>
+<li>Smart Infrastructure</li>
+<li>Public Safety</li>
+<li>Environment</li>
+</ul>
+</div>
+
+
+<div class="footer-box">
+<h3>Contact</h3>
+<p>123 Smart City Road</p>
+<p>Email: info@smartcity.com</p>
+<p>Phone: +91 9876543210</p>
+</div>
+
+</div>
+
+<div class="map-container">
+    <iframe 
+    src="https://maps.google.com/maps?q=Hyderabad%20India&output=embed">
+    </iframe>
+</div>
+<div class="footer-bottom">
+© 2026 Smart City Development Portal | All rights reserved
+</div>
+
+</footer>
+<script>
+function openMenu(){
+  document.getElementById("mainMenu").classList.toggle("show");
+}
+</script>
+</body>
+</html>
